@@ -35,6 +35,9 @@
   },
   "proxy": "http://localhost:3050",
   "devDependencies": {
-    "@types/styled-components": "^4.0.3"
+    "@types/styled-components": "^4.0.3",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "sinon": "^7.2.0"
   }
 }
