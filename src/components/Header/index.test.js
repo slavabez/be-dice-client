@@ -4,5 +4,7 @@ import { shallow } from "enzyme";
 import Header from "./index";
 
 describe('<Header />', () => {
-    test("Redners with no props", );
+    test("Renders with no props", () => {
+
+    });
 })

@@ -2,9 +2,12 @@
 
 ## Links
 Current site: [https://be-dice.com](https://be-dice.com)
+
 Backend part: [https://github.com/slavabez/be-dice-server](https://github.com/slavabez/be-dice-server)
+
 Docker build: [https://cloud.docker.com/repository/docker/slavalab/be-dice-client/builds](https://cloud.docker.com/repository/docker/slavalab/be-dice-client/builds)
 
+CircleCI tests: [![CircleCI](https://circleci.com/gh/slavabez/be-dice-client.svg?style=svg)](https://circleci.com/gh/slavabez/be-dice-client)
 
 ## About
 This project is what the end user sees, the React app (bootstrapped using Create React App) part of [BE-Dice](https://be-dice.com), a platform for rolling dice with your friends without registration, accounts and all that jazz.
