@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { beGreen } from "../shared";
 
 const Wrapper = styled.div`
   grid-area: p;

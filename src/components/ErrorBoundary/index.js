@@ -23,7 +23,7 @@ const ErrorWrapper = styled.div`
 export default class index extends Component {
   constructor(props) {
     super(props);
-    this.state = { hasError: true };
+    this.state = { hasError: false };
   }
 
   static getDerivedErrorFromError(error) {
@@ -56,6 +56,7 @@ export default class index extends Component {
             <a
               href="https://github.com/slavabez/be-dice-client"
               target="_blank"
+              rel="noopener noreferrer"
             >
               GitHub
             </a>
