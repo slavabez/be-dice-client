@@ -8,6 +8,11 @@ import {
 } from "../shared";
 
 class LandingPage extends Component {
+
+  componentDidMount(){
+    console.log(process.env.REACT_APP_BE_SERVER);
+  }
+
   render() {
     return (
       <CenteredFlex>
