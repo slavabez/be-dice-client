@@ -8,22 +8,25 @@ import {
 } from "../shared";
 
 class LandingPage extends Component {
-
-  componentDidMount(){
+  componentDidMount() {
     console.log(process.env.REACT_APP_BE_SERVER);
   }
 
   render() {
     return (
       <CenteredFlex>
-        <TextContent>
-          <LargeTitle>I'm the Landing Page</LargeTitle>
+        <TextContent data-testid="landing-section">
+          <LargeTitle data-testid="landing-header">
+            I'm the Landing Page
+          </LargeTitle>
           <LargeText>
             Bonus Eventus (BE-dice) is an online dice room. You can create room
             and a simple profile, invite your friends and roll various dice
             together..
           </LargeText>
-          <LargeButtonLink to="/profile">Let's roll!</LargeButtonLink>
+          <LargeButtonLink to="/profile" data-testid="landing-button">
+            Let's roll!
+          </LargeButtonLink>
         </TextContent>
       </CenteredFlex>
     );

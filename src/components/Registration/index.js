@@ -5,7 +5,7 @@ import CharacterCreation from "./CharacterCreation";
 class RegistrationPage extends Component {
   render() {
     return (
-      <CenteredFlex>
+      <CenteredFlex data-testid="registration-section">
         <TextContent>
           <LargeText>Choose how you will be seen</LargeText>
         </TextContent>
