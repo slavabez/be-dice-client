@@ -141,14 +141,19 @@ class CharacterCreation extends Component {
   render() {
     const { selectedAvatar, selectedName, selectedColor } = this.state;
     return (
-      <Wrapper onSubmit={this.handleCharacterSubmit}>
+      <Wrapper
+        onSubmit={this.handleCharacterSubmit}
+        data-testid="character-form"
+      >
         <CharacterPreview
           avatar={selectedAvatar}
           color={selectedColor}
           name={selectedName}
         />
-        <Avatars>{this.renderAvatars()}</Avatars>
-        <Colors>{this.renderColors()}</Colors>
+        <Avatars data-testid="character-avatars">
+          {this.renderAvatars()}
+        </Avatars>
+        <Colors data-testid="character-colors">{this.renderColors()}</Colors>
         <NameInput
           type="text"
           onChange={this.handleNameChange}
@@ -157,8 +162,13 @@ class CharacterCreation extends Component {
           minLength="3"
           required
           color={this.state.selectedColor}
+          data-testid="character-name-input"
         />
-        <Submit type="submit" color={this.state.selectedColor}>
+        <Submit
+          type="submit"
+          color={this.state.selectedColor}
+          data-testid="character-submit-button"
+        >
           Join a room
         </Submit>
       </Wrapper>

@@ -22,15 +22,15 @@ const Title = styled.span`
   width: 100%;
   font-size: 1.5rem;
   color: ${props => props.color || "black"};
-  
-  @media(min-width: 768px){
+
+  @media (min-width: 768px) {
     font-size: 2rem;
   }
 `;
 
 const CharacterPreview = props => {
   return (
-    <Wrapper color={props.color}>
+    <Wrapper color={props.color} data-testid="character-preview">
       <AvatarImage src={props.avatar} color={props.color} />
       <Title color={props.color}>{props.name}</Title>
     </Wrapper>

@@ -6,12 +6,9 @@ import { render, cleanup, fireEvent, getByText } from "react-testing-library";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
 import BeDice from "../components/BeDice";
+import CharacterCreation from "../components/Registration/CharacterCreation";
 
 describe("Basic usability tests", () => {
-  afterEach(() => {
-    cleanup();
-  });
-
   test("renders the landing page", () => {
     const app = render(<BeDice />);
 
@@ -41,5 +38,38 @@ describe("Basic usability tests", () => {
     // Registration shown now
     expect(queryByTestId("landing-section")).not.toBeInTheDocument();
     expect(getByTestId("registration-section")).toBeInTheDocument();
+  });
+
+  test("character creating works, colors change", () => {
+    const { getByTestId, queryByTestId } = render(<CharacterCreation />);
+
+    // Expect there to be a certain number of colors and avatars
+    const avatars = getByTestId("character-avatars");
+    const colors = getByTestId("character-colors");
+
+    expect(avatars.childNodes.length).toBe(7);
+    expect(colors.childNodes.length).toBe(10);
+
+    // Expect default color, avatar and character name
+    const preview = getByTestId("character-preview");
+
+    // Initial color is the first from the list
+    expect(preview.children[1].getAttribute("color")).toBe(
+      colors.children[0].getAttribute("color")
+    );
+
+    // Clicking on a random color will change character preview to that color
+    const randomButtonIndex = Math.floor(
+      Math.random() * colors.children.length
+    );
+
+    fireEvent.click(colors.children[randomButtonIndex]);
+
+    expect(preview.children[1].getAttribute("color")).toBe(
+      colors.children[randomButtonIndex].getAttribute("color")
+    );
+    const style = preview.style;
+    debugger;
+    expect(preview.style.borderColor).toBe("black");
   });
 });
