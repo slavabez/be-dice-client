@@ -1,8 +1,22 @@
 import io from "socket.io-client";
 
-const conn = io.connect();
-conn.on("error", err => {
+const url = `https://test.api.be-dice.com`;
+
+const connection = io.connect(url);
+connection.on("error", err => {
   console.error("Socket.IO connection error", err);
 });
 
-export default conn;
+connection.on("connect", () => {
+  // Things to do upon a successful connection
+  connection.emit("server.version");
+});
+
+connection.on("server.version", data => {
+  data.version &&
+    console.log(
+      `---- Connected to be-dice API version ${data.version} on ${url} ----`
+    );
+});
+
+export default connection;

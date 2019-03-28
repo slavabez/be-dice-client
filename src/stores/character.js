@@ -11,6 +11,13 @@ const socketStore = store({
   },
   register: props => {
     socket.emit("register.new", props);
+  },
+  checkSavedUser: () => {
+    // If there's a local cookie, attempt to load it
+    const saved = cookie.get("player_hash");
+    if (saved) {
+      socket.emit("register.restore", saved);
+    }
   }
 });
 
