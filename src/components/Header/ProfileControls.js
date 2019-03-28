@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import { view } from "react-easy-state";
 import characterStore from "../../stores/character";
@@ -27,18 +27,16 @@ const SmallAvatar = styled.img`
   border: 4px solid ${props => props.color};
 `;
 
-class ProfileControls extends Component {
-  render() {
-    if (!characterStore.currentUser.id) return null;
-    const { avatar, color } = characterStore.currentUser;
+const ProfileControls = () => {
+  if (!characterStore.currentUser.id) return null;
+  const { avatar, color } = characterStore.currentUser;
 
-    return (
-      <Wrapper>
-        <Door />
-        <SmallAvatar src={avatar} color={color} />
-      </Wrapper>
-    );
-  }
-}
+  return (
+    <Wrapper>
+      <Door />
+      <SmallAvatar src={avatar} color={color} />
+    </Wrapper>
+  );
+};
 
 export default view(ProfileControls);
