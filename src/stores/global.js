@@ -1,5 +1,9 @@
 import React from "react";
+import io from "socket.io-client";
 
+const API_URL = `https://test.api.be-dice.com`;
+
+export const CONNECT = "CONNECT";
 export const SET_API_VERSION = "SET_API_VERSION";
 export const SET_API_STATUS = "SET_API_STATUS";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
@@ -22,6 +26,10 @@ export const initialState = {
 
 export const reducer = (state, action) => {
   switch (action.type) {
+    case CONNECT: {
+      connection = io.connect(API_URL);
+    }
+
     case SET_API_VERSION: {
       return {
         ...state,

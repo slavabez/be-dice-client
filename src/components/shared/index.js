@@ -90,3 +90,19 @@ export const LargeButtonLink = styled(Link)`
   text-decoration: none;
   color: white;
 `;
+
+export const Button = styled.button`
+  width: fit-content;
+  align-self: center;
+  background-color: ${beGreen};
+  font-family: Dosis, sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0.5rem 2rem;
+  border-radius: 2rem;
+  border-image: initial;
+  text-decoration: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+`;
