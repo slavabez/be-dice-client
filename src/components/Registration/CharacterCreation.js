@@ -5,7 +5,6 @@ import { avatars, profileColors } from "../shared";
 import Avatar from "./Avatar";
 import Color from "./Color";
 import CharacterPreview from "./CharacterPreview";
-import characterStore from "../../stores/character";
 
 const Wrapper = styled.form`
   width: 100%;

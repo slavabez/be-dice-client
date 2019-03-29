@@ -1,8 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { view } from "react-easy-state";
-import characterStore from "../../stores/character";
 import Door from "../shared/DoorSvg";
+import Cog from "../shared/Cog";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -28,15 +28,15 @@ const SmallAvatar = styled.img`
 `;
 
 const ProfileControls = () => {
-  if (!characterStore.currentUser.id) return null;
-  const { avatar, color } = characterStore.currentUser;
-
   return (
     <Wrapper>
       <Door />
-      <SmallAvatar src={avatar} color={color} />
+      {/* <SmallAvatar src={avatar} color={color} /> */}
+      <Link to="/settings">
+        <Cog />
+      </Link>
     </Wrapper>
   );
 };
 
-export default view(ProfileControls);
+export default ProfileControls;

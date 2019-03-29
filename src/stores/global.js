@@ -1,6 +1,7 @@
 import React from "react";
 
 export const SET_API_VERSION = "SET_API_VERSION";
+export const SET_API_STATUS = "SET_API_STATUS";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const SET_ROOMS = "SET_ROOMS";
 export const SET_CURRENT_ROOM = "SET_CURRENT_ROOM";
@@ -13,6 +14,7 @@ export const GlobalContext = React.createContext({});
 
 export const initialState = {
   apiVersion: null,
+  apiStatus: null,
   currentUser: {},
   rooms: [],
   currentRoom: {}
@@ -24,6 +26,13 @@ export const reducer = (state, action) => {
       return {
         ...state,
         apiVersion: action.payload
+      };
+    }
+
+    case SET_API_STATUS: {
+      return {
+        ...state,
+        apiStatus: action.payload
       };
     }
 

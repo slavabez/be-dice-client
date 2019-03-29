@@ -66,6 +66,17 @@ export const LargeText = styled.p`
   }
 `;
 
+export const SmallText = styled.p`
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  @media (min-width: 768px) {
+    font-size: 1.3rem;
+    margin: 0.5rem 0.5rem 1rem;
+  }
+`;
+
 export const LargeButtonLink = styled(Link)`
   width: fit-content;
   align-self: center;
