@@ -19,7 +19,6 @@ export const initialState = {
 };
 
 export const reducer = (state, action) => {
-  console.log("Received action ", action);
   switch (action.type) {
     case SET_API_VERSION: {
       return {
@@ -83,15 +82,10 @@ export const reducer = (state, action) => {
     }
 
     case ROOM_NEW_ROLL: {
-      let rolls = state.currentRoom.history;
-      if (Array.isArray(rolls)) rolls.push(action.payload);
-      return {
-        ...state,
-        currentRoom: {
-          ...state.currentRoom,
-          rolls
-        }
-      };
+      const newState = Object.assign({}, state);
+      if (Array.isArray(newState.currentRoom.rolls))
+        newState.currentRoom.rolls.push(action.payload);
+      return newState;
     }
 
     default:
