@@ -84,7 +84,7 @@ export const reducer = (state, action) => {
 
     case ROOM_NEW_ROLL: {
       let rolls = state.currentRoom.history;
-      if (Array.isArray(rolls)) rolls.concat(action.payload);
+      if (Array.isArray(rolls)) rolls.push(action.payload);
       return {
         ...state,
         currentRoom: {

@@ -68,7 +68,27 @@ const modelState = {
         name: "Aragorn"
       }
     ],
-    createdAt: new Date()
+    createdAt: new Date(),
+    history: [
+      {
+        total: 16
+      },
+      {
+        total: 2
+      },
+      {
+        total: 4
+      },
+      {
+        total: 12
+      },
+      {
+        total: 66
+      },
+      {
+        total: 123
+      }
+    ]
   }
 };
 
@@ -161,5 +181,15 @@ describe("Global state Reducer logic unit tests", () => {
     expect(newState.currentRoom.users).toHaveLength(num - 1);
   });
 
-  test(`${ROOM_NEW_ROLL} works`, () => {});
+  test(`${ROOM_NEW_ROLL} works`, () => {
+    const num = originalState.currentRoom.history.length;
+    const newState = r(originalState, {
+      type: ROOM_NEW_ROLL,
+      payload: { total: 100 }
+    });
+    const manualState = Object.assign({}, modelState);
+    manualState.currentRoom.history.push({ total: 100 });
+    expect(newState.currentRoom.history).toHaveLength(num + 1);
+    expect(newState).toEqual(manualState);
+  });
 });
