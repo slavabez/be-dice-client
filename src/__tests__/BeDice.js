@@ -40,7 +40,7 @@ describe("Basic usability tests", () => {
     expect(getByTestId("registration-section")).toBeInTheDocument();
   });
 
-  test("character creating works, colors change", () => {
+  test.skip("character creating works, colors change", () => {
     const { getByTestId, queryByTestId } = render(<CharacterCreation />);
 
     // Expect there to be a certain number of colors and avatars

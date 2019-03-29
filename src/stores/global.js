@@ -38,7 +38,7 @@ export const reducer = (state, action) => {
     case SET_ROOMS: {
       return {
         ...state,
-        rooms: action.rooms
+        rooms: action.payload
       };
     }
 
@@ -71,7 +71,7 @@ export const reducer = (state, action) => {
     case ROOM_SOMEONE_LEFT: {
       let users = state.currentRoom.users;
       if (Array.isArray(users)) {
-        users = users.filter(u => u.id === action.payload);
+        users = users.filter(u => u.id !== action.payload);
       }
       return {
         ...state,
