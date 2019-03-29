@@ -1,5 +1,6 @@
-import React, { Component, useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
+import { GlobalContext, SET_CURRENT_USER } from "../../stores/global";
 import { avatars, profileColors } from "../shared";
 import Avatar from "./Avatar";
 import Color from "./Color";
@@ -93,6 +94,8 @@ const CharacterCreation = () => {
 
   const [state, setState] = useState(initialState);
 
+  const { dispatch } = useContext(GlobalContext);
+
   const { selectedAvatar, selectedName, selectedColor } = state;
 
   const setAvatar = avatar => {
@@ -109,10 +112,19 @@ const CharacterCreation = () => {
 
   const submitCharacter = e => {
     e.preventDefault();
-    characterStore.register({
-      avatar: selectedAvatar,
-      name: selectedName,
-      color: selectedColor
+    // characterStore.register({
+    //   avatar: selectedAvatar,
+    //   name: selectedName,
+    //   color: selectedColor
+    // });
+
+    dispatch({
+      type: SET_CURRENT_USER,
+      payload: {
+        avatar: selectedAvatar,
+        name: selectedName,
+        color: selectedColor
+      }
     });
   };
 

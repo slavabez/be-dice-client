@@ -9,9 +9,7 @@ export const ROOM_SOMEONE_LEFT = "ROOM_SOMEONE_LEFT";
 export const ROOM_SOMEONE_JOINED = "ROOM_SOMEONE_JOINED";
 export const ROOM_NEW_ROLL = "ROOM_NEW_ROLL";
 
-const GlobalContext = React.createContext({});
-
-export default GlobalContext;
+export const GlobalContext = React.createContext({});
 
 export const initialState = {
   apiVersion: null,
@@ -21,6 +19,7 @@ export const initialState = {
 };
 
 export const reducer = (state, action) => {
+  console.log("Received action ", action);
   switch (action.type) {
     case SET_API_VERSION: {
       return {

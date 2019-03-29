@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  CenteredFlex,
+  CentredFlex,
   LargeTitle,
   LargeText,
   TextContent,
@@ -8,7 +8,7 @@ import {
 } from "../shared";
 
 const LandingPage = () => (
-  <CenteredFlex>
+  <CentredFlex>
     <TextContent data-testid="landing-section">
       <LargeTitle data-testid="landing-header">I'm the Landing Page</LargeTitle>
       <LargeText>
@@ -19,7 +19,7 @@ const LandingPage = () => (
         Let's roll!
       </LargeButtonLink>
     </TextContent>
-  </CenteredFlex>
+  </CentredFlex>
 );
 
 export default LandingPage;

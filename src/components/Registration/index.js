@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import { CenteredFlex, LargeText, TextContent } from "../shared";
+import { CentredFlex, LargeText, TextContent } from "../shared";
 import CharacterCreation from "./CharacterCreation";
 
 class RegistrationPage extends Component {
   render() {
     return (
-      <CenteredFlex data-testid="registration-section">
+      <CentredFlex data-testid="registration-section">
         <TextContent>
           <LargeText>Choose how you will be seen</LargeText>
         </TextContent>
         <CharacterCreation />
-      </CenteredFlex>
+      </CentredFlex>
     );
   }
 }
