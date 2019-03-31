@@ -1,12 +1,5 @@
-import React, { useContext, useState } from "react";
-import styled from "styled-components";
-import {
-  GlobalContext,
-  initialState,
-  reducer,
-  CONNECT,
-  DISCONNECT
-} from "../../stores/global";
+import React, { useContext } from "react";
+import { GlobalContext, CONNECT, DISCONNECT } from "../../stores/global";
 import {
   CentredFlex,
   LargeTitle,
@@ -17,7 +10,6 @@ import {
 
 const Settings = () => {
   const { store, dispatch } = useContext(GlobalContext);
-  const [state, setState] = useState({ connected: false });
 
   const handleConnect = () => {
     dispatch({

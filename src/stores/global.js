@@ -1,7 +1,5 @@
 import React from "react";
 
-const API_URL = `https://test.api.be-dice.com`;
-
 export const CONNECT = "CONNECT";
 export const DISCONNECT = "DISCONNECT";
 export const SET_API_VERSION = "SET_API_VERSION";
@@ -40,7 +38,11 @@ export const reducer = (state, action) => {
     case DISCONNECT: {
       return {
         ...state,
-        doConnect: false
+        doConnect: false,
+        apiVersion: {
+          version: "n/a",
+          url: "n/a"
+        }
       };
     }
 

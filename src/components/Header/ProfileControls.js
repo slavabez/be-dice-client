@@ -22,10 +22,10 @@ const Wrapper = styled.div`
   }
 `;
 
-const SmallAvatar = styled.img`
+/* const SmallAvatar = styled.img`
   border-radius: 50%;
   border: 4px solid ${props => props.color};
-`;
+`; */
 
 const ProfileControls = () => {
   return (

@@ -53,8 +53,6 @@ const Info = styled.span`
 const ConnectionManager = () => {
   console.log("CM Rendered");
 
-  let connection;
-
   const [state, setState] = useState({
     connection: null
   });
@@ -108,7 +106,7 @@ const ConnectionManager = () => {
       if (state.connection) {
         state.connection.close();
       }
-      setState({ connection });
+      setState({ connection: state.connection });
     }
 
     // If for whatever reason the component is dismounted, close the connection
