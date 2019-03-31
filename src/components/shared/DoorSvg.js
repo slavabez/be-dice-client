@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  stroke-width: 0.2rem;
+  stroke-width: 0.125rem;
   stroke: white;
   padding: 0.5rem;
 `;

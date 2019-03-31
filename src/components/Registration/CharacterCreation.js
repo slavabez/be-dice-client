@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
+import { GlobalContext, SET_CURRENT_USER } from "../../stores/global";
 import { avatars, profileColors } from "../shared";
 import Avatar from "./Avatar";
 import Color from "./Color";
 import CharacterPreview from "./CharacterPreview";
-import characterStore from "../../stores/character";
 
 const Wrapper = styled.form`
   width: 100%;
@@ -84,96 +84,101 @@ const Submit = styled.button`
   }
 `;
 
-class CharacterCreation extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      selectedAvatar: "/images/none_100.png",
-      selectedName: "Player",
-      selectedColor: profileColors[0]
-    };
-  }
-
-  handleAvatarChange = avatar => {
-    this.setState({ selectedAvatar: avatar });
+const CharacterCreation = () => {
+  const initialState = {
+    selectedAvatar: "/images/none_100.png",
+    selectedName: "Player",
+    selectedColor: profileColors[0]
   };
 
-  handleColorChange = color => {
-    this.setState({ selectedColor: color });
+  const [state, setState] = useState(initialState);
+
+  const { dispatch } = useContext(GlobalContext);
+
+  const { selectedAvatar, selectedName, selectedColor } = state;
+
+  const setAvatar = avatar => {
+    setState(os => ({ ...os, selectedAvatar: avatar }));
   };
 
-  handleNameChange = e => {
-    this.setState({ selectedName: e.target.value });
+  const setColor = color => {
+    setState(os => ({ ...os, selectedColor: color }));
   };
 
-  handleCharacterSubmit = e => {
+  const setName = name => {
+    setState(os => ({ ...os, selectedName: name }));
+  };
+
+  const submitCharacter = e => {
     e.preventDefault();
-    characterStore.register({
-      avatar: this.state.selectedAvatar,
-      name: this.state.selectedName,
-      color: this.state.selectedColor
+    // characterStore.register({
+    //   avatar: selectedAvatar,
+    //   name: selectedName,
+    //   color: selectedColor
+    // });
+
+    dispatch({
+      type: SET_CURRENT_USER,
+      payload: {
+        avatar: selectedAvatar,
+        name: selectedName,
+        color: selectedColor
+      }
     });
   };
 
-  renderAvatars() {
+  const renderAvatars = () => {
     return avatars.map(a => (
       <Avatar
         src={a}
         key={a}
-        handleSelect={this.handleAvatarChange}
-        selected={a === this.state.selectedAvatar}
+        handleSelect={setAvatar}
+        selected={a === selectedAvatar}
       />
     ));
-  }
+  };
 
-  renderColors() {
+  const renderColors = () => {
     return profileColors.map(c => (
       <Color
         color={c}
         key={c}
-        handleSelect={this.handleColorChange}
-        selected={c === this.state.selectedColor}
+        handleSelect={setColor}
+        selected={c === selectedColor}
       />
     ));
-  }
+  };
 
-  render() {
-    const { selectedAvatar, selectedName, selectedColor } = this.state;
-    return (
-      <Wrapper
-        onSubmit={this.handleCharacterSubmit}
-        data-testid="character-form"
+  return (
+    <Wrapper onSubmit={submitCharacter} data-testid="character-form">
+      <CharacterPreview
+        avatar={selectedAvatar}
+        color={selectedColor}
+        name={selectedName}
+      />
+      <Avatars data-testid="character-avatars">{renderAvatars()}</Avatars>
+      <Colors data-testid="character-colors">{renderColors()}</Colors>
+      <NameInput
+        type="text"
+        onChange={e => {
+          setName(e.target.value);
+        }}
+        value={selectedName}
+        maxLength="12"
+        minLength="3"
+        required
+        color={selectedColor}
+        data-testid="character-name-input"
+      />
+      <Submit
+        type="submit"
+        color={selectedColor}
+        data-testid="character-submit-button"
       >
-        <CharacterPreview
-          avatar={selectedAvatar}
-          color={selectedColor}
-          name={selectedName}
-        />
-        <Avatars data-testid="character-avatars">
-          {this.renderAvatars()}
-        </Avatars>
-        <Colors data-testid="character-colors">{this.renderColors()}</Colors>
-        <NameInput
-          type="text"
-          onChange={this.handleNameChange}
-          value={this.state.selectedName}
-          maxLength="12"
-          minLength="3"
-          required
-          color={this.state.selectedColor}
-          data-testid="character-name-input"
-        />
-        <Submit
-          type="submit"
-          color={this.state.selectedColor}
-          data-testid="character-submit-button"
-        >
-          Join a room
-        </Submit>
-      </Wrapper>
-    );
-  }
-}
+        Join a room
+      </Submit>
+    </Wrapper>
+  );
+};
 
 export default CharacterCreation;

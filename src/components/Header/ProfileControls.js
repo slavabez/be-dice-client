@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { view } from "react-easy-state";
-import characterStore from "../../stores/character";
 import Door from "../shared/DoorSvg";
+import Cog from "../shared/Cog";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -22,23 +22,21 @@ const Wrapper = styled.div`
   }
 `;
 
-const SmallAvatar = styled.img`
+/* const SmallAvatar = styled.img`
   border-radius: 50%;
   border: 4px solid ${props => props.color};
-`;
+`; */
 
-class ProfileControls extends Component {
-  render() {
-    if (!characterStore.currentUser.id) return null;
-    const { avatar, color } = characterStore.currentUser;
+const ProfileControls = () => {
+  return (
+    <Wrapper>
+      <Door />
+      {/* <SmallAvatar src={avatar} color={color} /> */}
+      <Link to="/settings">
+        <Cog />
+      </Link>
+    </Wrapper>
+  );
+};
 
-    return (
-      <Wrapper>
-        <Door />
-        <SmallAvatar src={avatar} color={color} />
-      </Wrapper>
-    );
-  }
-}
-
-export default view(ProfileControls);
+export default ProfileControls;

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import ProfileControls from "./ProfileControls";
+import ConnectionManager from "../Settings/ConnectionManager";
 
 import { beDarkGreen } from "../shared";
 
-import logo from "../../assets/logo_white_small.png";
 
 const Wrapper = styled.header`
   width: 100%;
@@ -15,11 +15,6 @@ const Inner = styled.div`
   display: flex;
   align-items: center;
   padding: 0.5rem;
-
-  img {
-    height: 50px;
-    width: auto;
-  }
 `;
 
 class Header extends Component {
@@ -27,7 +22,7 @@ class Header extends Component {
     return (
       <Wrapper>
         <Inner>
-          <img src={logo} alt="BE Dice Logo (Bonus Eventus)" />
+          <ConnectionManager />
           <ProfileControls />
         </Inner>
       </Wrapper>
