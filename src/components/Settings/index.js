@@ -4,7 +4,8 @@ import {
   GlobalContext,
   initialState,
   reducer,
-  CONNECT
+  CONNECT,
+  DISCONNECT
 } from "../../stores/global";
 import {
   CentredFlex,
@@ -24,16 +25,25 @@ const Settings = () => {
     });
   };
 
+  const handleDisconnect = () => {
+    dispatch({
+      type: DISCONNECT
+    });
+  };
+
   return (
     <CentredFlex>
       <TextContent>
         <LargeTitle>Settings</LargeTitle>
         <Button onClick={handleConnect}>Connect</Button>
+        <br />
+        <Button onClick={handleDisconnect}>Disconnect</Button>
+        <br />
         <SmallText>
-          API Status: {state.connected ? `connected` : `disconnected`}
+          API Status: {store.apiStatus ? `connected` : `disconnected`}
         </SmallText>
-        <SmallText>API URL: {}</SmallText>
-        <SmallText>API Version: {}</SmallText>
+        <SmallText>API URL: {store.apiVersion.url}</SmallText>
+        <SmallText>API Version: {store.apiVersion.version}</SmallText>
       </TextContent>
     </CentredFlex>
   );

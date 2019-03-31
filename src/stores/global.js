@@ -17,7 +17,10 @@ export const ROOM_NEW_ROLL = "ROOM_NEW_ROLL";
 export const GlobalContext = React.createContext({});
 
 export const initialState = {
-  apiVersion: null,
+  apiVersion: {
+    version: "n/a",
+    url: "n/a"
+  },
   apiStatus: null,
   doConnect: false,
   currentUser: {},
