@@ -9,7 +9,6 @@ import RoomView from "../RoomView";
 import Settings from "../Settings";
 import { AppWrapper, MainView } from "./styled";
 import ErrorBoundary from "../ErrorBoundary";
-import ConnectionManager from "./ConnectionManager";
 
 const BeDice = () => {
   const [store, dispatch] = useReducer(reducer, initialState);
@@ -17,7 +16,6 @@ const BeDice = () => {
   return (
     <GlobalContext.Provider value={{ store, dispatch }}>
       <AppWrapper>
-        <ConnectionManager />
         <ErrorBoundary>
           <Router>
             <>

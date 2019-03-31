@@ -1,9 +1,9 @@
 import React from "react";
-import io from "socket.io-client";
 
 const API_URL = `https://test.api.be-dice.com`;
 
 export const CONNECT = "CONNECT";
+export const DISCONNECT = "DISCONNECT";
 export const SET_API_VERSION = "SET_API_VERSION";
 export const SET_API_STATUS = "SET_API_STATUS";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
@@ -19,6 +19,7 @@ export const GlobalContext = React.createContext({});
 export const initialState = {
   apiVersion: null,
   apiStatus: null,
+  doConnect: false,
   currentUser: {},
   rooms: [],
   currentRoom: {}
@@ -27,7 +28,17 @@ export const initialState = {
 export const reducer = (state, action) => {
   switch (action.type) {
     case CONNECT: {
-      connection = io.connect(API_URL);
+      return {
+        ...state,
+        doConnect: true
+      };
+    }
+
+    case DISCONNECT: {
+      return {
+        ...state,
+        doConnect: false
+      };
     }
 
     case SET_API_VERSION: {
