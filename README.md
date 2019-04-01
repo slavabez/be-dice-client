@@ -6,7 +6,7 @@
 
 Production site (branch production): [https://be-dice.com](https://be-dice.com)
 
-Dev site (branch master): [https://dev.be-dice.com](https://dev.be-dice.com)
+Dev site (branch master): [https://test.be-dice.com](https://test.be-dice.com)
 
 Back-end repo: [https://github.com/slavabez/be-dice-server](https://github.com/slavabez/be-dice-server)
 
