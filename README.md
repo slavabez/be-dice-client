@@ -1,6 +1,6 @@
-# BE-Dice
+# BE-Dice Client
 
-[![CircleCI](https://circleci.com/gh/slavabez/be-dice-client.svg?style=svg)](https://circleci.com/gh/slavabez/be-dice-client) [![codecov](https://codecov.io/gh/slavabez/be-dice-client/branch/master/graph/badge.svg)](https://codecov.io/gh/slavabez/be-dice-client) ![Docker Pulls](https://img.shields.io/docker/pulls/slavalab/be-dice-client.svg)
+[![CircleCI](https://circleci.com/gh/slavabez/be-dice-client.svg?style=svg)](https://circleci.com/gh/slavabez/be-dice-client) [![codecov](https://codecov.io/gh/slavabez/be-dice-client/branch/master/graph/badge.svg)](https://codecov.io/gh/slavabez/be-dice-client) ![Docker Pulls](https://img.shields.io/docker/pulls/slavalab/be-dice-client.svg) ![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m782314556-912064c9f6e97db092d5080b.svg)
 
 ## Links
 
@@ -11,8 +11,6 @@ Dev site: [https://dev.be-dice.com](https://dev.be-dice.com)
 Backend part: [https://github.com/slavabez/be-dice-server](https://github.com/slavabez/be-dice-server)
 
 Docker build: [https://cloud.docker.com/repository/docker/slavalab/be-dice-client/builds](https://cloud.docker.com/repository/docker/slavalab/be-dice-client/builds)
-
-CircleCI tests:
 
 ## About
 
