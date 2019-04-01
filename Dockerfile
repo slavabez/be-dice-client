@@ -26,7 +26,3 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy the built files from Node to the static files
 COPY --from=builder /usr/src/app/build /usr/share/nginx/html
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off"]
