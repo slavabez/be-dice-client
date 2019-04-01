@@ -1,8 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import { createPortal } from "react-dom";
 import usePortal from "./usePortal";
 
-const Modal = ({ children }) => {
-  const target = usePortal("portal");
-  return ReactDOM.createPortal(children, target);
+const Modal = ({ id, children }) => {
+  const target = usePortal(id);
+  return createPortal(children, target);
 };
+
+export default Modal;

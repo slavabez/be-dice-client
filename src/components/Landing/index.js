@@ -7,6 +7,7 @@ import {
   TextContent,
   LargeButtonLink
 } from "../shared";
+import Modal from "../Modal";
 
 const LandingPage = () => {
   const { store, dispatch } = useContext(GlobalContext);
@@ -17,6 +18,9 @@ const LandingPage = () => {
         <LargeTitle data-testid="landing-header">
           I'm the Landing Page
         </LargeTitle>
+        <Modal id="portal">
+          <h1>HELLO</h1>
+        </Modal>
         <LargeText>
           Bonus Eventus (BE-dice) is an online dice room. You can create room
           and a simple profile, invite your friends and roll various dice
