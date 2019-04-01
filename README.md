@@ -20,6 +20,8 @@ Initially the project was made in 48 hours for the Node Knockout 2018 hackathon,
 
 This purpose of this project was to create an app from ground up to practice good development practices, continuous deployment, testing, docker and other workflows. Since React Hooks came out it's a good way for me to practice Hooks, as well as other managing global state with useReducer and useContext.
 
+Project is under MIT Licence, so do whatever you want with the code.
+
 ## Stack
 
 This is the front end part, the part the end user sees. It was bootstrapped using Facebook's Create React App and uses Socket.io to communicate to the back-end.
@@ -27,6 +29,9 @@ This is the front end part, the part the end user sees. It was bootstrapped usin
 List of technologies/libraries used:
 
 - React@16.8
+  - Hoooooooks!!!
+  - useContext and useReducer hooks for global state management
+  - useState and useEffect for component state and component lifecycle
 - socket.io-client
 - Styled components
 
