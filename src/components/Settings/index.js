@@ -1,5 +1,10 @@
 import React, { useContext } from "react";
-import { GlobalContext, CONNECT, DISCONNECT } from "../../stores/global";
+import {
+  GlobalContext,
+  CONNECT,
+  DISCONNECT,
+  MODAL_MESSAGE
+} from "../../stores/global";
 import {
   CentredFlex,
   LargeTitle,
@@ -23,6 +28,23 @@ const Settings = () => {
     });
   };
 
+  const showModal = () => {
+    dispatch({
+      type: MODAL_MESSAGE,
+      payload: (
+        <TextContent>
+          <LargeTitle>Hello</LargeTitle>
+          <SmallText>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+            asperiores sit assumenda exercitationem alias tenetur rem mollitia,
+            beatae doloremque voluptatem unde error aliquam, officia obcaecati
+            eius aliquid voluptatibus dolores id.
+          </SmallText>
+        </TextContent>
+      )
+    });
+  };
+
   return (
     <CentredFlex>
       <TextContent>
@@ -31,6 +53,7 @@ const Settings = () => {
         <br />
         <Button onClick={handleDisconnect}>Disconnect</Button>
         <br />
+        <Button onClick={showModal}>Show Modal</Button>
         <SmallText>
           API Status: {store.apiStatus ? `connected` : `disconnected`}
         </SmallText>

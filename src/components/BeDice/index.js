@@ -41,7 +41,7 @@ const BeDice = () => {
                 <Route path="/rooms" exact component={RoomSelection} />
                 <Route path="/rooms/:roomName" component={RoomView} />
                 <Route path="/settings" component={Settings} />
-                {store.modalMessage && <Modal>{store.modalMessage}</Modal>}
+                {store.modalMessage && <Modal />}
               </MainView>
             </>
           </Router>

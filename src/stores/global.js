@@ -25,16 +25,7 @@ export const initialState = {
   currentUser: {},
   rooms: [],
   currentRoom: {},
-  modalMessage: (
-    <div>
-      <h1>Hi! I'm the title</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat labore
-        quo ut unde non, eveniet quod deleniti odit suscipit delectus, fugit
-        itaque, consequatur quam sit pariatur modi quos minima ipsa.
-      </p>
-    </div>
-  )
+  modalMessage: null
 };
 
 export const reducer = (state, action) => {
