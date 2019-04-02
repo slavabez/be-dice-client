@@ -11,6 +11,7 @@ export const LEAVE_ROOM = "LEAVE_ROOM";
 export const ROOM_SOMEONE_LEFT = "ROOM_SOMEONE_LEFT";
 export const ROOM_SOMEONE_JOINED = "ROOM_SOMEONE_JOINED";
 export const ROOM_NEW_ROLL = "ROOM_NEW_ROLL";
+export const MODAL_MESSAGE = "MODAL_MESSAGE";
 
 export const GlobalContext = React.createContext({});
 
@@ -23,7 +24,17 @@ export const initialState = {
   doConnect: false,
   currentUser: {},
   rooms: [],
-  currentRoom: {}
+  currentRoom: {},
+  modalMessage: (
+    <div>
+      <h1>Hi! I'm the title</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat labore
+        quo ut unde non, eveniet quod deleniti odit suscipit delectus, fugit
+        itaque, consequatur quam sit pariatur modi quos minima ipsa.
+      </p>
+    </div>
+  )
 };
 
 export const reducer = (state, action) => {
@@ -119,6 +130,13 @@ export const reducer = (state, action) => {
       if (Array.isArray(newState.currentRoom.rolls))
         newState.currentRoom.rolls.push(action.payload);
       return newState;
+    }
+
+    case MODAL_MESSAGE: {
+      return {
+        ...state,
+        modalMessage: action.payload
+      };
     }
 
     default:

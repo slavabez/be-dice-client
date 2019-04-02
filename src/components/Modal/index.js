@@ -10,6 +10,8 @@ const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 const ModalCard = styled.div`
@@ -17,10 +19,17 @@ const ModalCard = styled.div`
   min-width: 320px;
   z-index: 10;
   margin-bottom: 100px;
+  background-color: white;
 `;
 
-const Modal = () => {
-  return <Portal />;
+const Modal = ({ children }) => {
+  return (
+    <Portal id="portal">
+      <ModalWrapper>
+        <ModalCard>{children}</ModalCard>
+      </ModalWrapper>
+    </Portal>
+  );
 };
 
 export default Modal;
