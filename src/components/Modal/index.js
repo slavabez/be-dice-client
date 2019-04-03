@@ -12,6 +12,7 @@ export const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: ${p => p.zIndex ? p.zIndex : 1}
 `;
 
 const ModalCard = styled.div`

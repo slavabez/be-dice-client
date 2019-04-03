@@ -49,14 +49,16 @@ const Settings = () => {
   };
 
   const showLoading = () => {
-    dispatch({
-      type: SHOW_LOADING
-    });
+    setTimeout(() => {
+      dispatch({
+        type: SHOW_LOADING
+      });
+    }, 2000);
     setTimeout(() => {
       dispatch({
         type: STOP_LOADING
       });
-    }, 2000);
+    }, 5000);
   };
 
   return (

@@ -10,8 +10,8 @@ const Loading = () => {
   const { store } = useContext(GlobalContext);
 
   return (
-    <Portal id="portal">
-      <ModalWrapper>
+    <Portal id="loading">
+      <ModalWrapper zIndex="20">
         <ProgressBar />
         <Background />
       </ModalWrapper>

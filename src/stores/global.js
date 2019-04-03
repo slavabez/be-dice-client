@@ -30,7 +30,7 @@ export const initialState = {
   currentRoom: {},
   modalMessage: null,
   loading: {
-    isLoading: true,
+    isLoading: false,
     progress: 0,
     message: ""
   }
