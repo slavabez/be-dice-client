@@ -9,13 +9,7 @@ const Wrapper = styled.div`
 
 const Cog = () => (
   <Wrapper>
-    <svg
-      width="30px"
-      height="30px"
-      viewBox="0 0 478.703 478.703"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-    >
+    <svg width="30px" height="30px" viewBox="0 0 478.703 478.703">
       <g>
         <g>
           <path

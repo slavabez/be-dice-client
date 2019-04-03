@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../../stores/global";
 import {
   CentredFlex,
@@ -11,6 +11,9 @@ import Modal from "../Modal";
 
 const LandingPage = () => {
   const { store, dispatch } = useContext(GlobalContext);
+
+  // When first loaded, try to load the user from the cookie
+  useEffect(() => {}, []);
 
   return (
     <CentredFlex>
