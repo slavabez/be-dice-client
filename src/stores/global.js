@@ -12,6 +12,9 @@ export const ROOM_SOMEONE_LEFT = "ROOM_SOMEONE_LEFT";
 export const ROOM_SOMEONE_JOINED = "ROOM_SOMEONE_JOINED";
 export const ROOM_NEW_ROLL = "ROOM_NEW_ROLL";
 export const MODAL_MESSAGE = "MODAL_MESSAGE";
+export const SHOW_LOADING = "SHOW_LOADING";
+export const UPDATE_LOADING_PROGRESS = "UPDATE_LOADING_PROGRESS";
+export const STOP_LOADING = "STOP_LOADING";
 
 export const GlobalContext = React.createContext({});
 
@@ -25,7 +28,12 @@ export const initialState = {
   currentUser: {},
   rooms: [],
   currentRoom: {},
-  modalMessage: null
+  modalMessage: null,
+  loading: {
+    isLoading: true,
+    progress: 0,
+    message: ""
+  }
 };
 
 export const reducer = (state, action) => {
@@ -128,6 +136,38 @@ export const reducer = (state, action) => {
         ...state,
         modalMessage: action.payload
       };
+    }
+
+    case SHOW_LOADING: {
+      return {
+        ...state,
+        loading: {
+          isLoading: true,
+          progress: action.payload && action.payload.progress,
+          message: action.payload && action.payload.message
+        }
+      };
+    }
+
+    case STOP_LOADING: {
+      return {
+        ...state,
+        loading: {
+          isLoading: false,
+          progress: 0,
+          message: null
+        }
+      };
+    }
+
+    case UPDATE_LOADING_PROGRESS: {
+      const newState = Object.assign({}, state);
+      newState.loading = {
+        isLoading: state.loading.isLoading,
+        message: state.loading.message,
+        progress: action.payload
+      };
+      return newState;
     }
 
     default:

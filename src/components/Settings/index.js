@@ -3,7 +3,10 @@ import {
   GlobalContext,
   CONNECT,
   DISCONNECT,
-  MODAL_MESSAGE
+  MODAL_MESSAGE,
+  SHOW_LOADING,
+  UPDATE_LOADING_PROGRESS,
+  STOP_LOADING
 } from "../../stores/global";
 import {
   CentredFlex,
@@ -45,6 +48,17 @@ const Settings = () => {
     });
   };
 
+  const showLoading = () => {
+    dispatch({
+      type: SHOW_LOADING
+    });
+    setTimeout(() => {
+      dispatch({
+        type: STOP_LOADING
+      });
+    }, 2000);
+  };
+
   return (
     <CentredFlex>
       <TextContent>
@@ -54,6 +68,8 @@ const Settings = () => {
         <Button onClick={handleDisconnect}>Disconnect</Button>
         <br />
         <Button onClick={showModal}>Show Modal</Button>
+        <br />
+        <Button onClick={showLoading}>Show Loading</Button>
         <SmallText>
           API Status: {store.apiStatus ? `connected` : `disconnected`}
         </SmallText>

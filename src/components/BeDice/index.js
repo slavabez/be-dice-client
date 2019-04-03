@@ -8,6 +8,7 @@ import RoomSelection from "../RoomSelection";
 import RoomView from "../RoomView";
 import Settings from "../Settings";
 import Modal from "../Modal";
+import Loading from "../Modal/Loading";
 import { AppWrapper, MainView } from "./styled";
 import ErrorBoundary from "../ErrorBoundary";
 
@@ -42,6 +43,7 @@ const BeDice = () => {
                 <Route path="/rooms/:roomName" component={RoomView} />
                 <Route path="/settings" component={Settings} />
                 {store.modalMessage && <Modal />}
+                {store.loading.isLoading && <Loading />}
               </MainView>
             </>
           </Router>

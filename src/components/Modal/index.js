@@ -5,7 +5,7 @@ import { GlobalContext, MODAL_MESSAGE } from "../../stores/global";
 import Portal from "./Portal";
 import { absolute } from "../../utilities/position";
 
-const ModalWrapper = styled.div`
+export const ModalWrapper = styled.div`
   ${absolute()};
   width: 100%;
   height: 100%;
@@ -22,7 +22,7 @@ const ModalCard = styled.div`
   padding: 1.5rem;
 `;
 
-const Background = styled.div`
+export const Background = styled.div`
   ${absolute()};
   width: 100%;
   height: 100%;
