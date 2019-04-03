@@ -7,7 +7,7 @@ import {
   SET_API_STATUS
 } from "../../stores/global";
 
-import StatusSVG from "../shared/ChainLink";
+import Icon from "../../utilities/Icon";
 
 import logo from "../../assets/logo_white_small.png";
 
@@ -122,7 +122,8 @@ const ConnectionManager = () => {
       <Inside>
         <img src={logo} alt="Be-dice.com logo" />
         <Info>
-          <StatusSVG
+          <Icon
+            icon="chain_link"
             title={store.apiStatus ? "Connected" : "Disconnected"}
             color={store.apiStatus ? connectedColor : disconnectedColor}
             onClick={() => {
