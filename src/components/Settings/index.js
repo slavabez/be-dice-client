@@ -54,11 +54,11 @@ const Settings = () => {
         type: SHOW_LOADING
       });
     }, 2000);
-    setTimeout(() => {
+    /* setTimeout(() => {
       dispatch({
         type: STOP_LOADING
       });
-    }, 5000);
+    }, 5000); */
   };
 
   return (
