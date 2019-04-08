@@ -4,10 +4,11 @@ import SocketIO from "socket.io-client";
 import {
   GlobalContext,
   SET_API_VERSION,
-  SET_API_STATUS
+  SET_API_STATUS,
+  SET_CURRENT_USER
 } from "../../stores/global";
 
-import StatusSVG from "../shared/ChainLink";
+import Icon from "../../utilities/Icon";
 
 import logo from "../../assets/logo_white_small.png";
 
@@ -99,6 +100,13 @@ const ConnectionManager = () => {
         });
       });
 
+      connection.on("register.restore.success", data => {
+        dispatch({
+          type: SET_CURRENT_USER,
+          payload: data.user
+        });
+      });
+
       setState({ connection });
     } else {
       // Close the connection, if open
@@ -122,7 +130,8 @@ const ConnectionManager = () => {
       <Inside>
         <img src={logo} alt="Be-dice.com logo" />
         <Info>
-          <StatusSVG
+          <Icon
+            icon="chain_link"
             title={store.apiStatus ? "Connected" : "Disconnected"}
             color={store.apiStatus ? connectedColor : disconnectedColor}
             onClick={() => {

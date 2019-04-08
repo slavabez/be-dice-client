@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { GlobalContext } from "../../stores/global";
+import React, { useEffect, useContext } from "react";
 import {
   CentredFlex,
   LargeTitle,
@@ -7,10 +6,19 @@ import {
   TextContent,
   LargeButtonLink
 } from "../shared";
-import Modal from "../Modal";
+import cookies from "js-cookie";
+
+import GlobalContext from "../../stores/global";
 
 const LandingPage = () => {
-  const { store, dispatch } = useContext(GlobalContext);
+  const { dispatch } = useContext(GlobalContext);
+
+  // When first loaded, try to load the user from the cookie
+  useEffect(() => {
+    const savedHash = cookies.get("be_dice_player");
+    if (savedHash) {
+    }
+  }, []);
 
   return (
     <CentredFlex>

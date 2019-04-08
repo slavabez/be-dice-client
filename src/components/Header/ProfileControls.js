@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Door from "../shared/DoorSvg";
-import Cog from "../shared/Cog";
+import Icon from "../../utilities/Icon";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -30,10 +29,10 @@ const Wrapper = styled.div`
 const ProfileControls = () => {
   return (
     <Wrapper>
-      <Door />
+      <Icon icon="door" color="white" />
       {/* <SmallAvatar src={avatar} color={color} /> */}
       <Link to="/settings">
-        <Cog />
+        <Icon icon="cog" color="white" />
       </Link>
     </Wrapper>
   );
