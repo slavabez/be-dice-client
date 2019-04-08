@@ -15,6 +15,7 @@ export const MODAL_MESSAGE = "MODAL_MESSAGE";
 export const SHOW_LOADING = "SHOW_LOADING";
 export const UPDATE_LOADING_PROGRESS = "UPDATE_LOADING_PROGRESS";
 export const STOP_LOADING = "STOP_LOADING";
+export const RESTORE_USER = "RESTORE_USER";
 
 export const GlobalContext = React.createContext({});
 
@@ -30,7 +31,7 @@ export const initialState = {
   currentRoom: {},
   modalMessage: null,
   loading: {
-    isLoading: true,
+    isLoading: false,
     progress: 0,
     message: ""
   }
@@ -168,6 +169,10 @@ export const reducer = (state, action) => {
         progress: action.payload
       };
       return newState;
+    }
+
+    case RESTORE_USER: {
+      return;
     }
 
     default:

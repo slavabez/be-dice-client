@@ -4,7 +4,8 @@ import SocketIO from "socket.io-client";
 import {
   GlobalContext,
   SET_API_VERSION,
-  SET_API_STATUS
+  SET_API_STATUS,
+  SET_CURRENT_USER
 } from "../../stores/global";
 
 import Icon from "../../utilities/Icon";
@@ -96,6 +97,13 @@ const ConnectionManager = () => {
         dispatch({
           type: SET_API_STATUS,
           payload: false
+        });
+      });
+
+      connection.on("register.restore.success", data => {
+        dispatch({
+          type: SET_CURRENT_USER,
+          payload: data.user
         });
       });
 
