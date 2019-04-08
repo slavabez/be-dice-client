@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Background, ModalWrapper } from "./index";
 import { GlobalContext } from "../../stores/global";
 import Portal from "./Portal";
@@ -17,6 +17,15 @@ const LoadingWrapper = styled.div`
   }
 `;
 
+const rotate = keyframes`
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+`;
+
+const IconWrap = styled.div`
+  animation: ${rotate} 2s linear infinite;
+`;
+
 const Loading = () => {
   const { store } = useContext(GlobalContext);
 
@@ -24,7 +33,9 @@ const Loading = () => {
     <Portal id="loading">
       <ModalWrapper zIndex="20">
         <LoadingWrapper>
-          <Icon icon="cog" color={beGreen} />
+          <IconWrap>
+            <Icon icon="cog" color={beGreen} />
+          </IconWrap>
         </LoadingWrapper>
 
         <Background />
