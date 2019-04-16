@@ -8,7 +8,7 @@ import {
 } from "../shared";
 import cookies from "js-cookie";
 
-import GlobalContext from "../../stores/global";
+import { GlobalContext } from "../../stores/global";
 
 const LandingPage = () => {
   const { dispatch } = useContext(GlobalContext);
