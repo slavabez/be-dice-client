@@ -15,7 +15,7 @@ export const dark: Theme = {
 };
 
 export const bright: Theme = {
-  main: "white",
+  main: "#00D0AE",
   secondary: "yellow",
   bg: `linear-gradient(to right, rgb(248, 207, 247), rgb(212, 251, 254));`,
   headerBg: "#fff",
