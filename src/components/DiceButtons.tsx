@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import buttons from "../helpers/dice";
+
 const Wrapper = styled.div`
   grid-area: dice-buttons;
   overflow-x: auto;
@@ -13,15 +15,22 @@ const DieButton = styled.button`
 `;
 
 const DiceButtons = () => {
+  const initRoll = (roll: string) => {
+    console.log(`Rolled a ${roll}...`);
+  };
+
   return (
     <Wrapper>
-      <DieButton>d4</DieButton>
-      <DieButton>d6</DieButton>
-      <DieButton>d8</DieButton>
-      <DieButton>d10</DieButton>
-      <DieButton>d12</DieButton>
-      <DieButton>d20</DieButton>
-      <DieButton>d%</DieButton>
+      {buttons.map(b => (
+        <DieButton
+          key={b.name}
+          onClick={() => {
+            initRoll(b.roll);
+          }}
+        >
+          {b.name}
+        </DieButton>
+      ))}
     </Wrapper>
   );
 };
