@@ -3,10 +3,15 @@ import styled from "styled-components";
 
 const LogoSVG = styled.svg`
   fill: ${props => props.theme.logoColor};
+  width: 80px;
+  height: 50px;
 `;
 
 const LogoWrapper = styled.div`
   grid-area: logo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Logo = () => {

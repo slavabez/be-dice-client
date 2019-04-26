@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { bright } from "./styled/theme";
-import Logo from "./components/Logo";
+import { DiceButtons, Logo, TopControls } from "./components";
 let selectedTheme = bright;
 
 const AppWrapper = styled.div`
@@ -17,10 +17,7 @@ const AppWrapper = styled.div`
   font-family: "Dosis", sans-serif;
 
   div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    border: 1px solid black;
   }
 
   @media (orientation: landscape) {
@@ -41,12 +38,6 @@ const AppWrapper = styled.div`
   }
 `;
 
-const TopControls = styled.div`
-  grid-area: top-controls;
-`;
-const DiceButtons = styled.div`
-  grid-area: dice-buttons;
-`;
 const RollJournal = styled.div`
   grid-area: roll-journal;
 `;
@@ -56,8 +47,8 @@ const BeDiceApp: React.FC = () => {
     <ThemeProvider theme={selectedTheme}>
       <AppWrapper>
         <Logo />
-        <TopControls>Top Controls</TopControls>
-        <DiceButtons>Dice Icons</DiceButtons>
+        <TopControls />
+        <DiceButtons />
         <RollJournal>Roll Journal And Members</RollJournal>
       </AppWrapper>
     </ThemeProvider>
