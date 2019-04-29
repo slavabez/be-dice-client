@@ -1,7 +1,6 @@
 import DiceButtons from "./DiceButtons";
 import Logo from "./Logo";
 import TopControls from "./TopControls";
+import MainView from "./MainView";
 
-export { DiceButtons };
-export { Logo };
-export { TopControls };
+export { DiceButtons, Logo, TopControls, MainView };

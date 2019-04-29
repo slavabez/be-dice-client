@@ -14,7 +14,7 @@ const DieButton = styled.button`
   padding: 1rem;
 `;
 
-const DiceButtons = () => {
+const DiceButtons: React.FC = () => {
   const initRoll = (roll: string) => {
     console.log(`Rolled a ${roll}...`);
   };

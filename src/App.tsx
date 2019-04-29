@@ -1,45 +1,40 @@
 import * as React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { bright } from "./styled/theme";
-import { DiceButtons, Logo, TopControls } from "./components";
+import { Logo, TopControls, MainView } from "./components";
 let selectedTheme = bright;
 
 const AppWrapper = styled.div`
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-rows: 1fr 6fr;
   grid-template-areas:
     "logo top-controls"
-    "roll-journal roll-journal"
-    "dice-buttons dice-buttons";
+    "main-view main-view";
 
   font-family: "Dosis", sans-serif;
 
-  div {
+  div,
+  main {
     border: 1px solid black;
   }
 
   @media (orientation: landscape) {
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr 3fr;
     grid-template-areas:
-      "logo top-controls top-controls"
-      "roll-journal roll-journal dice-buttons";
+      "logo top-controls"
+      "main-view main-view";
   }
 
   @media (min-width: 1024px) {
     grid-template-columns: 1fr 1fr 6fr;
-    grid-template-rows: 1fr 1fr 5fr;
+    grid-template-rows: 1fr 6fr;
     grid-template-areas:
       "logo top-controls top-controls"
-      "dice-buttons dice-buttons dice-buttons"
-      "roll-journal roll-journal roll-journal";
+      "main-view main-view main-view";
   }
-`;
-
-const RollJournal = styled.div`
-  grid-area: roll-journal;
 `;
 
 const BeDiceApp: React.FC = () => {
@@ -48,8 +43,7 @@ const BeDiceApp: React.FC = () => {
       <AppWrapper>
         <Logo />
         <TopControls />
-        <DiceButtons />
-        <RollJournal>Roll Journal And Members</RollJournal>
+        <MainView>Roll Journal And Members</MainView>
       </AppWrapper>
     </ThemeProvider>
   );

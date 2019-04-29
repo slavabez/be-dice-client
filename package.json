@@ -11,9 +11,8 @@
     "@types/react-dom": "^16.8.4",
     "js-cookie": "^2.2.0",
     "prop-types": "^15.6.2",
-    "react": "^16.6.0",
+    "react": "^16.8.0",
     "react-dom": "^16.6.0",
-    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.0",
     "socket.io-client": "^2.1.1",
     "styled-components": "^4.0.3",
@@ -43,12 +42,9 @@
     "node": ">=10.x",
     "yarn": ">=1.10"
   },
-  "proxy": "http://localhost:3050",
   "devDependencies": {
     "@types/styled-components": "^4.0.3",
     "codecov": "^3.2.0",
-    "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.7.1",
     "jest-dom": "^3.0.0",
     "react-testing-library": "^5.4.4",
     "sinon": "^7.2.0"
