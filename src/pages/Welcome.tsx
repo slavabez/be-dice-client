@@ -1,6 +1,9 @@
 import React from "react";
+import { RouteComponentProps } from "@reach/router";
 
-const Welcome = () => {
+interface WelcomeProps extends RouteComponentProps {}
+
+const Welcome: React.FC<WelcomeProps> = () => {
   return (
     <div>
       <h1>Welcome</h1>

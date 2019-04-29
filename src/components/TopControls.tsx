@@ -22,7 +22,7 @@ const TopControls = () => {
   return (
     <Wrapper>
       <ExitButton>Exit room</ExitButton>
-      <button>Character</button>
+      <button>Profile</button>
     </Wrapper>
   );
 };

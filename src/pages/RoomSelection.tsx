@@ -1,6 +1,9 @@
 import React from "react";
+import { RouteComponentProps } from "@reach/router";
 
-const RoomSelection = () => {
+interface RSProps extends RouteComponentProps {}
+
+const RoomSelection: React.FC<RSProps> = () => {
   return (
     <div>
       <h1>Room Selection</h1>

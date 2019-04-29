@@ -1,6 +1,9 @@
 import React from "react";
+import { RouteComponentProps } from "@reach/router";
 
-const RoomView = () => {
+interface RVProps extends RouteComponentProps {}
+
+const RoomView: React.FC<RVProps> = () => {
   return (
     <div>
       <h1>Room View</h1>

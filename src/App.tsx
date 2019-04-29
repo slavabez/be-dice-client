@@ -1,6 +1,9 @@
 import * as React from "react";
 import styled, { ThemeProvider } from "styled-components";
+import { Router } from "@reach/router";
+
 import { bright } from "./styled/theme";
+import { CharacterCreation, RoomSelection, RoomView, Welcome } from "./pages";
 import { Logo, TopControls, MainView } from "./components";
 let selectedTheme = bright;
 
@@ -43,7 +46,14 @@ const BeDiceApp: React.FC = () => {
       <AppWrapper>
         <Logo />
         <TopControls />
-        <MainView>Roll Journal And Members</MainView>
+        <MainView>
+          <Router>
+            <Welcome path="/" />
+            <CharacterCreation path="/character" />
+            <RoomSelection path="/rooms" />
+            <RoomView path="/room/:roomId" />
+          </Router>
+        </MainView>
       </AppWrapper>
     </ThemeProvider>
   );
