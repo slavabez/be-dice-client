@@ -7,8 +7,8 @@ interface Theme {
 }
 
 export const dark: Theme = {
-  main: "grey",
-  secondary: "orange",
+  main: "#00D0AE",
+  secondary: "rgb(255, 110, 80)",
   bg: `linear-gradient(to right, rgb(248, 207, 247), rgb(212, 251, 254));`,
   headerBg: "#000",
   logoColor: "white"
@@ -16,7 +16,7 @@ export const dark: Theme = {
 
 export const bright: Theme = {
   main: "#00D0AE",
-  secondary: "yellow",
+  secondary: "rgb(255, 110, 80)",
   bg: `linear-gradient(to right, rgb(248, 207, 247), rgb(212, 251, 254));`,
   headerBg: "#fff",
   logoColor: "#00D0AE"

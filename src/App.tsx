@@ -40,6 +40,10 @@ const AppWrapper = styled.div`
   }
 `;
 
+const StyledRouter = styled(Router)`
+  height: 100%;
+`;
+
 const BeDiceApp: React.FC = () => {
   return (
     <ThemeProvider theme={selectedTheme}>
@@ -47,12 +51,12 @@ const BeDiceApp: React.FC = () => {
         <Logo />
         <TopControls />
         <MainView>
-          <Router>
+          <StyledRouter>
             <Welcome path="/" />
             <CharacterCreation path="/character" />
             <RoomSelection path="/rooms" />
             <RoomView path="/room/:roomId" />
-          </Router>
+          </StyledRouter>
         </MainView>
       </AppWrapper>
     </ThemeProvider>
