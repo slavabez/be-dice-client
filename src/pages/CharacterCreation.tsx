@@ -8,7 +8,7 @@ interface CCProps extends RouteComponentProps {}
 interface AvatarProps {
   isSelected: boolean;
 }
-interface ColorProps {
+interface ColorItemProps {
   isSelected: boolean;
   color: string;
 }
@@ -16,12 +16,18 @@ interface ColorProps {
 const Wrapper = styled.form`
   max-width: 90%;
   align-self: flex-start;
+  display: flex;
+  flex-direction: column;
 
   h1 {
     text-align: center;
     margin: 1rem;
     font-size: 2rem;
     font-weight: 700;
+  }
+
+  @media (min-width: 600px) {
+    align-items: center;
   }
 `;
 
@@ -39,16 +45,25 @@ const Preview = styled.div`
     color: ${p => p.color};
     font-weight: 700;
   }
+  @media (min-width: 600px) {
+    min-width: 350px;
+  }
 `;
 const PreviewAvatar = styled.img`
   border: 5px solid ${p => p.color};
   border-radius: 50%;
   margin: 0.5rem;
+  width: 100px;
+  height: 100px;
+  @media (min-width: 600px) {
+    width: 150px;
+    height: 150px;
+  }
 `;
 const Avatars = styled.div`
   display: flex;
   overflow-x: auto;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 `;
 const Avatar = styled.button`
   padding: 0;
@@ -71,53 +86,66 @@ const Colors = styled.div`
   display: flex;
   overflow: auto;
   flex-wrap: nowrap;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 `;
 const Color = styled.button`
   min-width: 50px;
   height: 50px;
   margin: 0.3rem;
-  background-color: ${(p: ColorProps) => p.color};
+  background-color: ${(p: ColorItemProps) => p.color};
   border: 4px solid
-    ${(p: ColorProps) => (p.isSelected ? "black" : "transparent")};
+    ${(p: ColorItemProps) => (p.isSelected ? "black" : "transparent")};
   border-radius: 50%;
 `;
 
 const NameInput = styled.input`
   justify-self: center;
   width: 80%;
-  border-top-width: initial;
-  border-right-width: initial;
-  border-left-width: initial;
-  border-top-color: initial;
-  border-right-color: initial;
-  border-left-color: initial;
   text-align: center;
   font-size: 1.5rem;
-  grid-area: n / n / n / n;
   padding: 0.5rem;
   border-style: none none solid;
   border-image: initial;
-  border-bottom: 1px solid rgb(255, 135, 195);
+  border-bottom: 1px solid ${p => p.color || "grey"};
   align-self: center;
   margin: 0.5rem;
 `;
 
-const Submit = styled.button``;
+const Submit = styled.button`
+  align-self: center;
+  width: 80%;
+  background-color: ${p => p.color || "grey"};
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
+`;
 
 const CharacterCreation: React.FC<CCProps> = () => {
-  const [avatar, setAvatar] = useState(avatars[0]);
+  const [avatar, setAvatar] = useState({
+    name: "Empty",
+    src: "/images/none_100.png",
+    large: "/images/none_100.png"
+  });
   const [color, setColor] = useState(colors[0]);
   const [name, setName] = useState("Player");
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
 
   return (
     <Wrapper onSubmit={handleSubmit}>
       <h1>Choose your profile</h1>
       <Preview color={color.hex}>
         <PreviewAvatar
-          src={avatar.src}
+          src={avatar.large}
           alt={`Selected avatar: ${avatar.name}`}
           color={color.hex}
         />
@@ -153,12 +181,15 @@ const CharacterCreation: React.FC<CCProps> = () => {
         maxLength={16}
         minLength={3}
         required
+        color={color.hex}
         value={name}
         onChange={e => {
           setName(e.target.value);
         }}
       />
-      <Submit type="submit">Create</Submit>
+      <Submit type="submit" color={color.hex}>
+        Continue
+      </Submit>
     </Wrapper>
   );
 };
