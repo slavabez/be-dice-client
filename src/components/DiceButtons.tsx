@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import buttons from "../helpers/dice";
+import buttons from "../utilities/dice";
 
 const Wrapper = styled.div`
   grid-area: dice-buttons;
