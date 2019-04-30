@@ -20,7 +20,7 @@ const AppWrapper = styled.div`
 
   div,
   main {
-    border: 1px solid black;
+    // border: 1px solid black;
   }
 
   @media (orientation: landscape) {
@@ -42,6 +42,9 @@ const AppWrapper = styled.div`
 
 const StyledRouter = styled(Router)`
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const BeDiceApp: React.FC = () => {

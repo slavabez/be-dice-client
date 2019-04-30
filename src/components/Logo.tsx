@@ -5,6 +5,16 @@ const LogoSVG = styled.svg`
   fill: ${props => props.theme.logoColor};
   width: 80px;
   height: 50px;
+
+  @media (min-width: 600px) {
+    width: 135px;
+    height: 80px;
+  }
+
+  @media (min-width: 1000px) {
+    width: 200px;
+    height: 125px;
+  }
 `;
 
 const LogoWrapper = styled.div`

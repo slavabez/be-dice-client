@@ -32,8 +32,40 @@ const Wrapper = styled.div`
     border-style: none;
     padding: 0.5rem 2rem;
     border-radius: 1.5rem;
-    margin: 1rem;
+    margin: 2rem 1rem;
     text-decoration: none;
+  }
+
+  @media (min-width: 600px) {
+    max-width: 500px;
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+
+    a {
+      font-size: 2rem;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    max-width: 750px;
+
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+
+    a {
+      font-size: 2.5rem;
+    }
   }
 `;
 
