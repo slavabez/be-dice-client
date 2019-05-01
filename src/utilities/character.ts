@@ -11,37 +11,38 @@ export const colors = [
   { hex: "#626262", name: "Gray" }
 ];
 export const avatars = [
-  { src: "/images/bard_100.png",
-    large: "/images/bard_400.png",
+  {
+    thumb: "/images/bard_100.png",
+    src: "/images/bard_400.png",
     name: "Bard"
   },
   {
-    src: "/images/cleric_100.png",
-    large: "/images/cleric_400.png",
+    thumb: "/images/cleric_100.png",
+    src: "/images/cleric_400.png",
     name: "Cleric"
   },
-  { src: "/images/monk_100.png",
-    large: "/images/monk_400.png",
+  { thumb: "/images/monk_100.png",
+    src: "/images/monk_400.png",
     name: "Monk"
   },
   {
-    src: "/images/paladin_100.png",
-    large: "/images/paladin_400.png",
+    thumb: "/images/paladin_100.png",
+    src: "/images/paladin_400.png",
     name: "Paladin"
   },
   {
-    src: "/images/rogue_100.png",
-    large: "/images/rogue_400.png",
+    thumb: "/images/rogue_100.png",
+    src: "/images/rogue_400.png",
     name: "Rogue"
   },
   {
-    src: "/images/sorcerer_100.png",
-    large: "/images/sorcerer_400.png",
+    thumb: "/images/sorcerer_100.png",
+    src: "/images/sorcerer_400.png",
     name: "Sorcerer"
   },
   {
-    src: "/images/warlock_100.png",
-    large: "/images/warlock_400.png",
+    thumb: "/images/warlock_100.png",
+    src: "/images/warlock_400.png",
     name: "Warlock"
   }
 ];

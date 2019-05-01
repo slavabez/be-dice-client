@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { RouteComponentProps } from "@reach/router";
+import { RouteComponentProps, navigate } from "@reach/router";
 
 import { avatars, colors } from "../utilities/character";
 
 interface CCProps extends RouteComponentProps {}
+
 interface AvatarProps {
   isSelected: boolean;
 }
@@ -131,13 +132,21 @@ const CharacterCreation: React.FC<CCProps> = () => {
   const [avatar, setAvatar] = useState({
     name: "Empty",
     src: "/images/none_100.png",
-    large: "/images/none_100.png"
+    thumb: "/images/none_100.png"
   });
   const [color, setColor] = useState(colors[0]);
   const [name, setName] = useState("Player");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const character = {
+      avatar: avatar.src,
+      name,
+      color: color.hex
+    };
+    console.log("Char created", character);
+    // Do things
+    navigate("/rooms");
   };
 
   return (
@@ -145,7 +154,7 @@ const CharacterCreation: React.FC<CCProps> = () => {
       <h1>Choose your profile</h1>
       <Preview color={color.hex}>
         <PreviewAvatar
-          src={avatar.large}
+          src={avatar.src}
           alt={`Selected avatar: ${avatar.name}`}
           color={color.hex}
         />
@@ -159,11 +168,11 @@ const CharacterCreation: React.FC<CCProps> = () => {
             }}
             key={a.name}
             isSelected={avatar.name === a.name}
-            role="button"
             aria-pressed={avatar.name === a.name}
             aria-label={`Select ${a.name} avatar`}
+            type="button"
           >
-            <img src={a.src} alt={`${a.name} avatar`} />
+            <img src={a.thumb} alt={`${a.name} avatar`} />
           </Avatar>
         ))}
       </Avatars>
@@ -179,6 +188,7 @@ const CharacterCreation: React.FC<CCProps> = () => {
             role="button"
             aria-pressed={avatar.name === c.name}
             aria-label={`Select ${c.name} color`}
+            type="button"
           />
         ))}
       </Colors>
