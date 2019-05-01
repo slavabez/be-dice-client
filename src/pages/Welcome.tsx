@@ -77,7 +77,13 @@ const Welcome: React.FC<WelcomeProps> = () => {
         Be-Dice is an online dice rolling platform. Create dice-rooms for your
         friends and roll dice together in real time.
       </p>
-      <Link to="/character">Let's roll</Link>
+      <p>
+        No registration needed, simply create a profile, join a room and start
+        rolling dice
+      </p>
+      <Link aria-label="Create profile" to="/character">
+        Let's roll
+      </Link>
     </Wrapper>
   );
 };

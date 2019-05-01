@@ -159,8 +159,11 @@ const CharacterCreation: React.FC<CCProps> = () => {
             }}
             key={a.name}
             isSelected={avatar.name === a.name}
+            role="button"
+            aria-pressed={avatar.name === a.name}
+            aria-label={`Select ${a.name} avatar`}
           >
-            <img src={a.src} alt={`Select ${a.name} avatar`} />
+            <img src={a.src} alt={`${a.name} avatar`} />
           </Avatar>
         ))}
       </Avatars>
@@ -173,6 +176,9 @@ const CharacterCreation: React.FC<CCProps> = () => {
             key={c.hex}
             color={c.hex}
             isSelected={c.hex === color.hex}
+            role="button"
+            aria-pressed={avatar.name === c.name}
+            aria-label={`Select ${c.name} color`}
           />
         ))}
       </Colors>
