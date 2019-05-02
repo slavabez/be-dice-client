@@ -1,4 +1,4 @@
-export function getTimeFromDate(timestamp: number) {
+export function getTimeFromDate(timestamp: number | Date) {
   const date = new Date(timestamp);
   // Adds 0 to minutes and hours < 10 to change times like 8:7 to 08:07
   let minutes: string | number = date.getMinutes();

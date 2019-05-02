@@ -80,9 +80,15 @@ export const RoomListItem = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: none;
   background: none;
   font-size: 1.2rem;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+
+  &:hover {
+    box-shadow: 0 0 15px ${p => p.theme.mainFaded};
+  }
 `;
 
 export const Name = styled.span`
