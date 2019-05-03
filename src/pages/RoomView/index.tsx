@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { RouteComponentProps } from "@reach/router";
+import posed from "react-pose";
 import { Room } from "./interfaces";
 
 import { colors, avatars } from "../../utilities/character";
 import dice from "../../utilities/dice";
+import SVG from "../../utilities/SVGs";
 
 interface RVProps extends RouteComponentProps {
   roomId?: string;
@@ -97,17 +99,22 @@ export const RoomSection = styled.div`
   display: flex;
   max-width: 100%;
   overflow: hidden;
+  width: 100%;
 `;
 
 export const RoomInfoPanel = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  transition: all 2s ease;
+  align-items: flex-start;
 `;
 
-export const HistoryPanel = styled.div``;
+interface FadingPanelProps {
+  isFaded: boolean;
+}
+
+export const HistoryPanel = styled.div`
+  flex-grow: 1;
+  opacity: ${(p: FadingPanelProps) => (p.isFaded ? 0.7 : 1)};
+`;
 
 export const RoomPlayers = styled.div``;
 
@@ -117,7 +124,6 @@ export const RollsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  width: 85vw;
 `;
 
 export const Roll = styled.div`
@@ -125,39 +131,15 @@ export const Roll = styled.div`
   align-items: center;
 `;
 
+const CollapsibleRoomInfoPanel = posed.div({
+  closed: { width: 0, opacity: 0, zIndex: -1 },
+  open: { width: "auto", opacity: 1, zIndex: 0 }
+});
+
+export const MenuOpenButton = styled.button``;
+
 const RoomView: React.FC<RVProps> = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const renderMenu = () => {
-    if (menuOpen || window.screen.width >= 600) {
-      return (
-        <RoomInfoPanel>
-          <h1>{roomInfo.name}</h1>
-          <button>Leave</button>
-          <RoomPlayers>
-            {roomInfo.users.map(p => (
-              <Player key={p.id}>
-                <img src={p.avatar.thumb} alt={p.name} />
-                <p>{p.name}</p>
-              </Player>
-            ))}
-          </RoomPlayers>
-        </RoomInfoPanel>
-      );
-    } else {
-      return (
-        <RoomInfoPanel>
-          <button
-            onClick={() => {
-              setMenuOpen(true);
-            }}
-          >
-            Open
-          </button>
-        </RoomInfoPanel>
-      );
-    }
-  };
 
   return (
     <Wrapper>
@@ -170,8 +152,24 @@ const RoomView: React.FC<RVProps> = () => {
         ))}
       </DiceSection>
       <RoomSection>
-        {renderMenu()}
-        <HistoryPanel>
+        <RoomInfoPanel>
+          <CollapsibleRoomInfoPanel pose={menuOpen ? "open" : "closed"}>
+            <h1>{roomInfo.name}</h1>
+            <button>Leave</button>
+            <RoomPlayers>
+              {roomInfo.users.map(p => (
+                <Player key={p.id}>
+                  <img src={p.avatar.thumb} alt={p.name} />
+                  <p>{p.name}</p>
+                </Player>
+              ))}
+            </RoomPlayers>
+          </CollapsibleRoomInfoPanel>
+          <MenuOpenButton onClick={() => setMenuOpen(!menuOpen)}>
+            <SVG name="menu" />
+          </MenuOpenButton>
+        </RoomInfoPanel>
+        <HistoryPanel isFaded={menuOpen}>
           <RollsWrapper>
             {roomInfo.history.map(r => (
               <Roll key={r.createdAt.toString()}>
