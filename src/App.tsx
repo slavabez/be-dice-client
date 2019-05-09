@@ -1,10 +1,9 @@
 import * as React from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { Router } from "@reach/router";
 
 import { bright } from "./styled/theme";
 import { CharacterCreation, RoomSelection, RoomView, Welcome } from "./pages";
-import { Logo, TopControls, MainView } from "./components";
+import { Logo, TopControls, MainView, TransitionRouter } from "./components";
 let selectedTheme = bright;
 
 const AppWrapper = styled.div`
@@ -40,13 +39,6 @@ const AppWrapper = styled.div`
   }
 `;
 
-const StyledRouter = styled(Router)`
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 const BeDiceApp: React.FC = () => {
   return (
     <ThemeProvider theme={selectedTheme}>
@@ -54,12 +46,12 @@ const BeDiceApp: React.FC = () => {
         <Logo />
         <TopControls />
         <MainView>
-          <StyledRouter>
+          <TransitionRouter>
             <Welcome path="/" />
             <CharacterCreation path="/character" />
             <RoomSelection path="/rooms" />
             <RoomView path="/room/:roomId" />
-          </StyledRouter>
+          </TransitionRouter>
         </MainView>
       </AppWrapper>
     </ThemeProvider>
